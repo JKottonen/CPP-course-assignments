@@ -7,10 +7,13 @@
 // Toteuta funktiot joka tulostaa float-tyyppisen taulukon kaikki arvot,
 // hyödynnä osoitinaritmetiikkaa
 
-// HEADERS
 #include <iostream>
 
 using namespace std;
+
+// HEADERS
+int changeInts(int x, int y);
+
 
 main() {
     int x = 2;
@@ -22,4 +25,10 @@ main() {
     cout << "pointer X: " << *ptrX << "pointer Y:" << *ptrY << endl;
     cout << "X: " << *&x << "Y: " << *&y << endl;
 
+}
+
+int changeInts(int x, int y) {
+    int temp = 0;
+    temp = *&x;
+    
 }
