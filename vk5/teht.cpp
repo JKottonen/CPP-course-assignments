@@ -13,11 +13,16 @@ using namespace std;
 
 // HEADERS
 int changeInts(int x, int y);
+void printArray(float array[5]);
+
 
 
 main() {
     int x = 2;
     int y = 5;
+    #define arrlength = 5
+    int array[5] = {};
+    
 
     int *ptrX = &x;
     int *ptrY = &y;
@@ -27,8 +32,6 @@ main() {
 
 }
 
-int changeInts(int x, int y) {
-    int temp = 0;
-    temp = *&x;
-    
+void printArray( float *ptrArray) {
+
 }
