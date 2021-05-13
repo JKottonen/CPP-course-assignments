@@ -27,8 +27,12 @@ main() {
     int *ptrX = &x;
     int *ptrY = &y;
 
-    cout << "pointer X: " << *ptrX << "pointer Y:" << *ptrY << endl;
-    cout << "X: " << *&x << "Y: " << *&y << endl;
+    cout << "pointer X: " << *ptrX << endl;
+    cout << "pointer Y: " << *ptrY << endl;
+    cout << "X: " << *&x << endl;
+    cout << "Y: " << *&y << endl;
+    cout << x << endl;
+    cout << y << endl;
 
 }
 
