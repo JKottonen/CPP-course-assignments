@@ -1,3 +1,13 @@
+// Toteuta funktio joka vaihtaa kahden int-tyyppisen luvun arvot,
+// käytä viittauksia
+
+// Toteuta funktio joka vaihtaa kahden int-tyyppisen luvun arvot,
+// käytä osoittimia
+
+// Toteuta funktiot joka tulostaa float-tyyppisen taulukon kaikki arvot,
+// hyödynnä osoitinaritmetiikkaa
+
+
 #include <iostream>
 using namespace std;
  
@@ -10,13 +20,14 @@ int main () {
 
    // pass pointer to the array as an argument.
    printArray( balance, 5 );
-    
    return 0;
 }
 
 void printArray(double arr[], int size) {      
+    double *p;
+    p = arr;
 
    for (int i = 0; i < size; ++i) {
-      cout << arr[i] << endl;
+      cout << *(p + i) << endl;
    }
 }
