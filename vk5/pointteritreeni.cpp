@@ -1,14 +1,27 @@
-# include <iostream>
+#include <iostream>
 
 using namespace std;
 
-// HEADERS
+int  main()
+{
+  int muuttuja = 2;	      // muuttuja
+  int& rViittaus = muuttuja;  // viittaus
+  
 
+  cout << "muuttuja on " << muuttuja << endl;
+  cout << "rViittaus on " << rViittaus << endl;
 
-main() {
-    int x = 10; 
-    int *ptr = &x;
+  muuttuja = 5;
 
-    cout << "PTR osoittaa: " << ptr << endl;
-    cout << "PTR:n osoittaman muistipaikan sisältämä arvo: " << *ptr << endl;
+  cout << "muuttuja on " << muuttuja << endl;
+  cout << "rViittaus on " << rViittaus << endl;
+
+  rViittaus = 2;
+
+  cout << "muuttuja on " << muuttuja << endl;
+  cout << "rViittaus on " << rViittaus << endl;
+  
+  cout << &rViittaus << endl;
+
+  return EXIT_SUCCESS;
 }
