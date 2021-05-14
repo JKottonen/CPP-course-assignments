@@ -10,7 +10,8 @@ main() {
     Auto salonen(6969, "Merse", 31);
     cout << "--------------------------" << endl;
     kottonen.printThingsOut();
-    salonen.printThingsOut();
+    kottonen.setHinta(4000);
+    kottonen.printThingsOut();
 }
 
 void printHello() {
