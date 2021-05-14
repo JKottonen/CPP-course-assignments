@@ -1,14 +1,6 @@
 #include <string>
+#include "ajoneuvo.cpp"
 using namespace std;
-
-// Base class
-class Ajoneuvo {
-    public:
-        string honkSound = "Tööttistä saatana!";
-        void honk() {
-            cout << honkSound << endl;
-    }
-};
 
 // Derived class
 class Auto: public Ajoneuvo {

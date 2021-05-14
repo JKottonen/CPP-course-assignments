@@ -1,6 +1,6 @@
 #include "headers.h"
 #include <iostream>
-#include "haista.cpp"
+#include "auto.cpp"
 
 using namespace std;
 
@@ -16,6 +16,8 @@ main() {
     kottonen.honk();
     salonen.honk();
 
+    kottonen.honkSound = "Tööttistä töö juu vaan sinnekki";
+    kottonen.honk();
 }
 
 void printHello() {
