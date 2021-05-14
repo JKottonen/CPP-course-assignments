@@ -12,6 +12,10 @@ main() {
     kottonen.printThingsOut();
     kottonen.setHinta(4000);
     kottonen.printThingsOut();
+
+    kottonen.honk();
+    salonen.honk();
+
 }
 
 void printHello() {

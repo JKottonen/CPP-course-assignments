@@ -1,7 +1,17 @@
 #include <string>
 using namespace std;
 
-class Auto {
+// Base class
+class Ajoneuvo {
+    public:
+        string honkSound = "Tööttistä saatana!";
+        void honk() {
+            cout << honkSound << endl;
+    }
+};
+
+// Derived class
+class Auto: public Ajoneuvo {
     public:
     // Public attributes:
         int autoId;
