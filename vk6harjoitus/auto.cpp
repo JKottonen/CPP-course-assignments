@@ -1,3 +1,6 @@
+#ifndef AUTO_H
+#define AUTO_H
+
 #include <string>
 #include "ajoneuvo.cpp"
 using namespace std;
@@ -40,3 +43,5 @@ int Auto::getHinta() {
 void Auto::setHinta(int h) {
     hinta = h;
 }
+
+#endif // AUTO_H

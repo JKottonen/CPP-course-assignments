@@ -1,3 +1,6 @@
+#ifndef AJONEUVO_H
+#define AJONEUVO_H
+
 #include "irtaimisto.cpp"
 #include <string>
 #include <iostream>
@@ -7,7 +10,10 @@ using namespace std;
 class Ajoneuvo: public Irtaimisto {
     public:
         string honkSound = "Tööttistä saatana!";
-        void honk() {
-            cout << honkSound << endl;
+        string honk() {
+            //cout << honkSound << endl;
+            return honkSound;
     }
 };
+
+#endif // AJONEUVO_H

@@ -1,3 +1,6 @@
+#ifndef IRTAIMISTO_H
+#define IRTAIMISTO_H
+
 #include <string>
 #include <iostream>
 using namespace std;
@@ -9,3 +12,5 @@ class Irtaimisto {
     private:
         int hinta = 6000;
 };
+
+#endif // IRTAIMISTO_H
