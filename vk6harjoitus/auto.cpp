@@ -26,7 +26,6 @@ Auto::Auto(int x, string y, int z) {
             autoId = x;
             autoMerkki = y;
             age = z;
-            hinta = 5000;
         }
 
 void Auto::printThingsOut() {
