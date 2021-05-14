@@ -13,6 +13,7 @@ using namespace std;
 
 // function declaration:
 void changeIntsWithPointers(int* pointerX, int* pointerY);
+void changeIntsWithRefs(int &x, int &y);
 void printArray(double arr[], int size);
 
 
@@ -25,13 +26,26 @@ int main() {
    int* pointerX = &x;
    int* pointerY = &y;
 
-   cout << *&x << endl;
-   cout << *&y << endl;
+   cout << "X: " << &x << endl;
+   cout << "Y: " << &y << endl;
 
    cout << "X: " << *pointerX << endl;
    cout << "Y: " << *pointerY << endl;
 
    changeIntsWithPointers(pointerX, pointerY);
+
+   cout << "X: " << &x << endl;
+   cout << "Y: " << &y << endl;
+
+
+   cout << "X: " << *pointerX << endl;
+   cout << "Y: " << *pointerY << endl;
+
+   changeIntsWithRefs(x , y);
+
+   cout << "X: " << &x << endl;
+   cout << "Y: " << &y << endl;
+
 
    cout << "X: " << *pointerX << endl;
    cout << "Y: " << *pointerY << endl;
@@ -46,7 +60,15 @@ int main() {
    return 0;
 }
 void changeIntsWithPointers(int* pointerX, int* pointerY) {
-   *pointerX = *pointerY;
+   int temp;
+   temp = *pointerY;
+   *pointerY = *pointerX;
+   *pointerX = temp;
+}
+void changeIntsWithRefs(int& x, int& y) {
+   int temp = x;
+   x = y;
+   y = temp;
 }
 
 void printArray(double* p, int size) {
