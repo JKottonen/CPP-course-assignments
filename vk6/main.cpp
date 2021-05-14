@@ -1,14 +1,22 @@
 #include <iostream>
 
-#include "main.h"
+#include "auto.h"
 
 using namespace std;
 
-main() {
-    int added = addInts(2, 5);
-    cout << added << endl;
-}
+int main()
+{
+    Auto::kuvaile();
 
-int addInts(int x, int y) {
-    return x + y;
+    Auto a1 = Auto();
+    Auto a2 = Auto(1202);
+
+    a1.setNopeus(10);
+    a2.setNopeus(20);
+
+    cout << "Auto1 nopeus:" << a1.getNopeus() << " tunniste:" << a1.getTunniste() << endl;
+    cout << "Auto2 nopeus:" << a2.getNopeus() << " tunniste:" << a2.getTunniste() << endl;
+
+    cout << "Tehdyt autot:" << Auto::tehdytAutot << endl;
+    return 0;
 }
