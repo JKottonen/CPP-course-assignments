@@ -6,21 +6,8 @@ using namespace std;
 
 
 main() {
-    string koo = "KOO";
-    cout << koo << endl;
-
-    Auto kaara;
-    kaara.autoId = 2334;
-    Auto salonen;
-    salonen.autoId = 69;
-    salonen.autoMerkki = "Merseedes";
-    Auto kottonen;
-    kottonen.autoId = 666;
-    kottonen.autoMerkki = "Toijootta";
-    Auto koivisto;
-    koivisto.autoId = 6969;
-    koivisto.autoMerkki = "Bemmi";
-    printHello();
+    Auto kottonen(69, "Laada", 28);
+    Auto salonen(6969, "Merse", 31);
     cout << "--------------------------" << endl;
     kottonen.printThingsOut();
     salonen.printThingsOut();
