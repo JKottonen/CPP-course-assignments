@@ -1,38 +1,18 @@
 #include <iostream>
+#include "Grid.h"
+#include "Grid.cpp"
 
 using namespace std;
 
-// Base class
-class Animal {
-  public:
-    void animalSound() {
-    cout << "The animal makes a sound \n" ;
-  }
-};
+char grid[gridHeight][gridWidht];
 
-// Derived class
-class Pig : public Animal {
-  public:
-    void animalSound() {
-    cout << "The pig says: wee wee \n" ;
-   }
-};
-
-// Derived class
-class Dog : public Animal {
-  public:
-    void animalSound() {
-    cout << "The dog says: bow wow \n" ;
-  }
-};
+void createGrid();
+void printGrid();
 
 int main() {
-  Animal myAnimal;
-  Pig myPig;
-  Dog myDog;
+	Grid player1Map;
+	player1Map.printGrid();
+	player1Map.grid[1][1] = 'F';
 
-  myAnimal.animalSound();
-  myPig.animalSound();
-  myDog.animalSound();
-  return 0;
+	return 0;
 }
