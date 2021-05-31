@@ -2,6 +2,7 @@
 #define GRID_H
 
 #include <iostream>
+#include "Player.h"
 
 using namespace std;
 
@@ -13,16 +14,19 @@ using namespace std;
 class Grid {
 
     public:
-        Grid() {
-        generateGrid();
-        }
+        Grid();
         char grid[gridHeight][gridWidht];
         void printGrid();
-        void sayHello();
+        void revealGrid();
+        char getBlock(int y, int x);
 
     private:
         void generateGrid();
 };
+
+Grid::Grid() {
+    generateGrid();
+}
     
 
 

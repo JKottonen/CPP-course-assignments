@@ -3,8 +3,32 @@
 
 //char grid[gridHeight][gridWidht];
 
+char Grid::getBlock(int y, int x) {
+    return grid[y][x];
+}
 
 void Grid::printGrid() {
+    for(int y = 0; y < gridHeight; y++) {
+        for(int x = 0; x < gridWidht; x++) {
+            if(y == 0 || x == 0) {
+                cout << grid[y][x] << ' ';
+            }
+            if(grid[y][x] == 'X' || grid[y][x] == '-' || grid[y][x] == '?') {
+                cout << grid[y][x] << ' ';
+            }
+            if(grid[y][x] == 'O') {
+                cout << '-' << ' ';
+            }
+			if(x == gridWidht - 1) {
+				cout << endl;
+			}
+        }
+    }
+}
+
+
+void Grid::revealGrid() {
+    
     for(int y = 0; y < gridHeight; y++) {
         for(int x = 0; x < gridWidht; x++) {
             cout << grid[y][x] << " ";
