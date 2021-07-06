@@ -7,11 +7,8 @@ using namespace std;
 class Ship {
 
     public:
-        enum Direction {
-            up, right, down, left
-        };
+        char direction;
         int length;
-        Direction direction;
 
     private:
 

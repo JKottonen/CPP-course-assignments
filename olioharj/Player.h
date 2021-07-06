@@ -14,7 +14,8 @@ public:
     Grid Map;
     int playerNumber;
     int points = 0;
-    void addShip(int y, int x, Ship::Direction direction);
+    bool checkShipSpace(int y, int x, int length, char direction);
+    void addShip(int y, int x, int length, char direction);
     void shoot(Player& opponent, int y, int x);
 };
 
