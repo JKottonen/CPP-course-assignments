@@ -1,9 +1,6 @@
 #ifndef GRID_H
 #define GRID_H
 
-#include <iostream>
-#include "Player.h"
-
 using namespace std;
 
 #define gridHeight 11
@@ -24,9 +21,7 @@ class Grid {
         void generateGrid();
 };
 
-Grid::Grid() {
-    generateGrid();
-}
+
     
 
 

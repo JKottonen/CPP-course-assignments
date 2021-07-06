@@ -2,7 +2,6 @@
 #define PLAYER_H
 
 #include "Grid.h"
-#include "Grid.cpp"
 
 class Player
 {
@@ -13,11 +12,7 @@ public:
     Player(int number);
     int playerNumber;
     int points = 0;
+    void shoot(Player& opponent, int y, int x);
 };
-
-Player::Player(int number)
-{
-    playerNumber = number;
-}
 
 #endif

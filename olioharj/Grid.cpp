@@ -1,7 +1,12 @@
 #include "Grid.h"
 #include <string>
+#include <iostream>
 
 //char grid[gridHeight][gridWidht];
+
+Grid::Grid() {
+    generateGrid();
+}
 
 char Grid::getBlock(int y, int x) {
     return grid[y][x];

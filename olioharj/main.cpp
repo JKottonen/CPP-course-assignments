@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Player.h"
+#include "Grid.h"
+
 using namespace std;
 
 int main() {
@@ -27,6 +29,8 @@ int main() {
 	Player2.Map.printGrid();
 	cout << endl;
 	Player2.Map.revealGrid();
+
+	Player1.shoot(Player2, 1, 8);
 
 	return 0;
 }
