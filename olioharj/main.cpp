@@ -4,33 +4,22 @@
 
 using namespace std;
 
+void addShips(Player& player, int shipSizes[], int navySize) {
+	for(int i = 0; i < navySize; i++) {
+		cout << "Pelaaja " << player.playerNumber << ": anna aloituskoordinaatit laivalle, jonka pituus on " << shipSizes[i] << endl;
+	}
+}
+
+
 int main() {
-	Player Player1(1);
-	Player Player2(2);
+	int navySize = 6;
+	int* shipSizes = new int[navySize] {5,5,4,3,3,2};
 
-	Player1.Map.grid[2][3] = 'X';
-	Player1.Map.grid[2][4] = 'O';
-	Player1.Map.grid[3][4] = 'O';
-	Player1.Map.grid[4][4] = 'O';
-	Player1.Map.grid[5][4] = 'O';
-	Player1.Map.grid[1][1] = '?';
+	Player Player1(1, navySize);
+	Player Player2(2, navySize);
 
-	Player2.Map.grid[2][8] = 'O';
-	Player2.Map.grid[3][8] = 'O';
-	Player2.Map.grid[4][8] = 'O';
-	Player2.Map.grid[5][8] = 'O';
-	
+	addShips(Player1, shipSizes, navySize);
 
-
-	Player1.Map.printGrid();
-	cout << endl;
-	Player1.Map.revealGrid();
-
-	Player2.Map.printGrid();
-	cout << endl;
-	Player2.Map.revealGrid();
-
-	Player1.shoot(Player2, 1, 8);
-
+	delete[] shipSizes;
 	return 0;
 }

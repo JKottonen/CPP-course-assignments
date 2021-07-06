@@ -6,12 +6,15 @@
 class Player
 {
 private:
-    /* data */
+    Ship* m_navy;
+    int m_navySize;
 public:
+    Player(int number, int navySize);
+    ~Player();
     Grid Map;
-    Player(int number);
     int playerNumber;
     int points = 0;
+    void addShip(int y, int x, Ship::Direction direction);
     void shoot(Player& opponent, int y, int x);
 };
 
