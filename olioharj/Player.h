@@ -6,10 +6,9 @@
 class Player
 {
 private:
-    Ship* m_navy;
-    int m_navySize;
+
 public:
-    Player(int number, int navySize);
+    Player(int number);
     ~Player();
     Grid Map;
     int playerNumber;

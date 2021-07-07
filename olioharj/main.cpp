@@ -3,15 +3,18 @@
 #include "Grid.h"
 
 using namespace std;
+
+
 int charToInt(char alphabet) {
 	return alphabet - 64;
 }
 
-void addShips(Player& player, int shipSizes[], int navySize) {
+void addShips(Player& player, string shipSeed) {
 	int y, x;
 	char temp; 
-	for(int i = 0; i < navySize; i++) {
-		cout << "Pelaaja " << player.playerNumber << ": anna aloituskoordinaatit laivalle, jonka pituus on " << shipSizes[i] << endl;
+	for(int i = 0; i < shipSeed.length(); i++) {
+		int shipLength = (int)shipSeed[i]-48;
+		cout << "Pelaaja " << player.playerNumber << ": anna aloituskoordinaatit laivalle, jonka pituus on " << shipLength << endl;
 		cout << "A-J: ";
 		cin >> temp;
 		temp = toupper(temp);
@@ -22,28 +25,26 @@ void addShips(Player& player, int shipSizes[], int navySize) {
 		cin >> temp;
 		temp = toupper(temp);
 		cout << endl;
-		if(player.checkShipSpace(y, x, shipSizes[i], temp)){
-			player.addShip(y, x, shipSizes[i], temp);
+		if(player.checkShipSpace(y, x, shipLength, temp)){
+			player.addShip(y, x, shipLength, temp);
 		}
 		else{
-			cout << "EI KÄY";
+			cout << "EI KÄY" << endl;
 			i--;
 		}
-
+		
 	}
 }
 
 
 int main() {
-	int navySize = 6;
-	int* shipSizes = new int[navySize] {5,5,4,3,3,2};
+	string shipSeed = "554332";
 
-	Player Player1(1, navySize);
-	Player Player2(2, navySize);
+	Player Player1(1);
+	Player Player2(2);
 
 	Player1.Map.revealGrid();
-	addShips(Player1, shipSizes, navySize);
+	addShips(Player1, shipSeed);
 
-	delete[] shipSizes;
 	return 0;
 }
