@@ -14,11 +14,13 @@ void addShips(Player& player, int shipSizes[], int navySize) {
 		cout << "Pelaaja " << player.playerNumber << ": anna aloituskoordinaatit laivalle, jonka pituus on " << shipSizes[i] << endl;
 		cout << "A-J: ";
 		cin >> temp;
+		temp = toupper(temp);
 		x = charToInt(temp);
 		cout << "\n" << "1-10: ";
 		cin >> y;
-		cout << "\n" << "Suunta: n,s,w,e: ";
+		cout << "\n" << "Suunta: N,S,W,E: ";
 		cin >> temp;
+		temp = toupper(temp);
 		cout << endl;
 		if(player.checkShipSpace(y, x, shipSizes[i], temp)){
 			player.addShip(y, x, shipSizes[i], temp);

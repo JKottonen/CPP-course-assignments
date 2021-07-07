@@ -22,8 +22,8 @@ bool Player::checkShipSpace(int y, int x, int length, char direction) {
         return false;
     }
 
-    if(direction == 'n') {
-        if((y - length) < 1) {
+    if(direction == 'N') {
+        if((y - (length-1)) < 1) {
             return false;
         }
         for(int i = y; i > y-length; i--) {
@@ -33,8 +33,8 @@ bool Player::checkShipSpace(int y, int x, int length, char direction) {
         }     
     }
 
-    if(direction == 's') {
-        if((y + length) > 10) {
+    if(direction == 'S') {
+        if((y + (length-1)) > 10) {
             return false;
         }
         for(int i = y; i < y + length; i++) {
@@ -44,8 +44,8 @@ bool Player::checkShipSpace(int y, int x, int length, char direction) {
         }
     }
     
-    if(direction == 'w') {
-        if((x - length) < 1) {
+    if(direction == 'W') {
+        if((x - (length-1)) < 1) {
             return false;
         }
         for(int i = x; i > x-length; i--) {
@@ -54,8 +54,8 @@ bool Player::checkShipSpace(int y, int x, int length, char direction) {
             }
         }  
     }
-    if(direction == 'e') {
-        if((x + length) > 10) {
+    if(direction == 'E') {
+        if((x + (length-1)) > 10) {
             return false;
         }
         for(int i = x; i < x + length; i++) {
@@ -68,26 +68,26 @@ bool Player::checkShipSpace(int y, int x, int length, char direction) {
 }
 
 void Player::addShip(int y, int x, int length, char direction) {
-    if(direction == 'n') {
+    if(direction == 'N') {
         for(int i = y; i > y-length; i--) {
             Map.grid[i][x] = 'O';
         }
     }
 
-    if(direction == 's') {
-        for(int i = y; i > y + length; i++) {
+    if(direction == 'S') {
+        for(int i = y; i < y + length; i++) {
             Map.grid[i][x] = 'O';
         }
     }
 
-    if(direction == 'w') {
+    if(direction == 'W') {
         for(int i = x; i > x-length; i--) {
             Map.grid[y][i] = 'O';
         }
     }
 
-    if(direction == 'e') {
-        for(int i = x; i > x + length; x++) {
+    if(direction == 'E') {
+        for(int i = x; i < x + length; i++) {
             Map.grid[y][i] = 'O';
         }
     }
