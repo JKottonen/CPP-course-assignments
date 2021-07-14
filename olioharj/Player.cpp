@@ -1,8 +1,10 @@
 #include "Player.h"
 #include <iostream>
 
-Player::Player(int number) {
+Player::Player(int number, int maxPoints) {
     playerNumber = number;
+    health = maxPoints;
+    maxHealth = maxPoints;
 }
 Player::~Player() {
 

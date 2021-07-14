@@ -8,11 +8,15 @@ class Player
 private:
 
 public:
-    Player(int number);
+    Player(int number, int maxPoints);
     ~Player();
+
     Grid Map;
     int playerNumber;
     int points = 0;
+    int health;
+    int maxHealth;
+
     bool checkShipSpace(int y, int x, int length, char direction);
     void addShip(int y, int x, int length, char direction);
     void shoot(Player& opponent, int y, int x);

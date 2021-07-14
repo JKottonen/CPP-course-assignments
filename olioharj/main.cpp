@@ -4,6 +4,14 @@
 
 using namespace std;
 
+int countMaxPoints(string shipSeed) {
+	int sum = 0;
+	for (int i = 0; i < shipSeed.length(); i++) {
+		int num = (int)shipSeed[i]-48;
+		sum = sum + num;
+	}
+	return sum;
+}
 
 int charToInt(char alphabet) {
 	return alphabet - 64;
@@ -39,9 +47,10 @@ void addShips(Player& player, string shipSeed) {
 
 int main() {
 	string shipSeed = "554332";
+	int maxPoints = countMaxPoints(shipSeed);
 
-	Player Player1(1);
-	Player Player2(2);
+	Player Player1(1, maxPoints);
+	Player Player2(2, maxPoints);
 
 	Player1.Map.revealGrid();
 	addShips(Player1, shipSeed);
