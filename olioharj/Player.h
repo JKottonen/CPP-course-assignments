@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "string"
 #include "Grid.h"
 
 class Player
@@ -17,9 +18,11 @@ public:
     int health;
     int maxHealth;
 
+    int charToInt(char alphabet);
+    void addShips(string shipSeed);
     bool checkShipSpace(int y, int x, int length, char direction);
     void addShip(int y, int x, int length, char direction);
-    void shoot(Player& opponent, int y, int x);
+    bool shoot(Player& opponent);
 };
 
 #endif

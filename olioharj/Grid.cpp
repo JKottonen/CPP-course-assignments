@@ -12,6 +12,10 @@ char Grid::getBlock(int y, int x) {
     return grid[y][x];
 }
 
+void Grid::setBlock(int y, int x, char newChar) {
+    grid[y][x] = newChar;
+}
+
 void Grid::printGrid() {
     for(int y = 0; y < gridHeight; y++) {
         for(int x = 0; x < gridWidht; x++) {

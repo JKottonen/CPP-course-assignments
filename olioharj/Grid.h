@@ -18,6 +18,7 @@ class Grid {
         void printGrid();
         void revealGrid();
         char getBlock(int y, int x);
+        void setBlock(int y, int x, char newChar);
 
     private:
         void generateGrid();

@@ -13,47 +13,27 @@ int countMaxPoints(string shipSeed) {
 	return sum;
 }
 
-int charToInt(char alphabet) {
-	return alphabet - 64;
-}
-
-void addShips(Player& player, string shipSeed) {
-	int y, x;
-	char temp; 
-	for(int i = 0; i < shipSeed.length(); i++) {
-		int shipLength = (int)shipSeed[i]-48;
-		cout << "Pelaaja " << player.playerNumber << ": anna aloituskoordinaatit laivalle, jonka pituus on " << shipLength << endl;
-		cout << "A-J: ";
-		cin >> temp;
-		temp = toupper(temp);
-		x = charToInt(temp);
-		cout << "\n" << "1-10: ";
-		cin >> y;
-		cout << "\n" << "Suunta: N,S,W,E: ";
-		cin >> temp;
-		temp = toupper(temp);
-		cout << endl;
-		if(player.checkShipSpace(y, x, shipLength, temp)){
-			player.addShip(y, x, shipLength, temp);
-		}
-		else{
-			cout << "EI KÄY" << endl;
-			i--;
-		}
-		
-	}
-}
-
-
 int main() {
-	string shipSeed = "554332";
+	string shipSeed = "5";
 	int maxPoints = countMaxPoints(shipSeed);
 
 	Player Player1(1, maxPoints);
 	Player Player2(2, maxPoints);
+	Player1.addShips(shipSeed);
+	Player2.addShips(shipSeed);
 
-	Player1.Map.revealGrid();
-	addShips(Player1, shipSeed);
+//	Player1.Map.revealGrid();
+
+	while (true) {
+		Player2.Map.printGrid();
+		Player1.Map.revealGrid();
+		Player1.shoot(Player2);
+
+		Player1.Map.printGrid();
+		Player2.Map.revealGrid();
+		Player2.shoot(Player1);
+	}
+	
 
 	return 0;
 }
