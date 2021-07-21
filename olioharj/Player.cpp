@@ -1,6 +1,12 @@
 #include "Player.h"
 #include <iostream>
 
+Player::Player() {
+    playerNumber = 0;
+    health = 0;
+    maxHealth = 0;
+}
+
 Player::Player(int number, int maxPoints) {
     playerNumber = number;
     health = maxPoints;
@@ -15,37 +21,41 @@ int Player::charToInt(char alphabet) {
 
 // Shooting function:
 // Returns false if coordinates are shot already, or shot is out of bounds.
-bool Player::shoot(Player& Opponent) {
-    string coords;
+void Player::shoot(Player& Opponent) {
     int x, y;
+    char temp;
+    bool shot = false;
+    
+    while(!shot) {
+        cout << "Insert coordinates to shoot: ";
+        cin >> temp;
+        x = charToInt(temp);
+        cin >> y;
 
-    cout << "Insert coordinates to shoot: ";
-    cin >> coords;
-    x = charToInt(coords[0]);
-    y = (int)coords[1];
-
-    if(x < 1 || x > 10 || y < 1 || y > 10) {
-        cout << "Shot out of bounds!" << endl;
-        return false;
+        if(x < 1 || x > 10 || y < 1 || y > 10) {
+            cout << "Shot out of bounds!" << endl;
+            shot = false;
+        }
+        if(Opponent.Map.getBlock(y, x) == 'O') {
+            Opponent.Map.setBlock(y, x, 'X');
+            shot = true;
+        }
+        if(Opponent.Map.getBlock(y, x) == '-') {
+            Opponent.Map.setBlock(y, x, '?');
+            shot = true;
+        }
+        if(Opponent.Map.getBlock(y,x) != '-' || Opponent.Map.getBlock(y,x) != 'O') {
+            cout << "Shot taken already!" << endl;
+            shot = false;
+        }
+        shot = false;
     }
-    if(Opponent.Map.getBlock(y,x) != '-') {
-        cout << "Shot taken already!" << endl;
-        return false;
-    }
-    if(Opponent.Map.getBlock(y, x) == 'O') {
-        Opponent.Map.setBlock(y, x, 'X');
-        return true;
-    }
-    if(Opponent.Map.getBlock(y, x) == '-') {
-        Opponent.Map.setBlock(y, x, '?');
-        return true;
-    }
-    return false;
 }
 
 void Player::addShips(string shipSeed) {
 	int y, x;
 	char temp;
+    system("CLS");
     Map.revealGrid();
 	for(int i = 0; i < shipSeed.length(); i++) {
 		int shipLength = (int)shipSeed[i]-48;

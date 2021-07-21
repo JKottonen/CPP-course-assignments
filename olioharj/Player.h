@@ -4,25 +4,25 @@
 #include "string"
 #include "Grid.h"
 
-class Player
-{
-private:
+class Player {
+    private:
 
-public:
-    Player(int number, int maxPoints);
-    ~Player();
+    public:
+        Player();
+        Player(int number, int maxPoints);
+        ~Player();
 
-    Grid Map;
-    int playerNumber;
-    int points = 0;
-    int health;
-    int maxHealth;
+        Grid Map;
+        int playerNumber;
+        int points = 0;
+        int health;
+        int maxHealth;
 
-    int charToInt(char alphabet);
-    void addShips(string shipSeed);
-    bool checkShipSpace(int y, int x, int length, char direction);
-    void addShip(int y, int x, int length, char direction);
-    bool shoot(Player& opponent);
+        int charToInt(char alphabet);
+        void addShips(string shipSeed);
+        bool checkShipSpace(int y, int x, int length, char direction);
+        void addShip(int y, int x, int length, char direction);
+        void shoot(Player& opponent);
 };
 
 #endif
