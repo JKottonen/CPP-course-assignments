@@ -24,10 +24,20 @@ int Game::countMaxPoints(string shipSeed) {
 	return sum;
 }
 void Game::gameloop() {
-    while(Player1.points < maxPoints || Player2.points < maxPoints) {
+    int winner;
+    while(true) {
         this -> turn(Player1, Player2);
+        if(Player1.points >= maxPoints) {
+            winner = 1;
+            break;
+        }
         this -> turn(Player2, Player1);
+        if(Player2.points >= maxPoints) {
+            winner = 2;
+            break;
+        }
     }
+    cout << "PLAYER " << winner << " WINS!" << endl;
     
 }
 
@@ -42,5 +52,5 @@ void Game::turn(Player& player, Player& opponent) {
     std::cout << "  YOUR MAP" << endl;
     player.Map.revealGrid();
     std::cout << "Your points: " << player.points << "/" << maxPoints << endl;
-    player.shoot(opponent);
+    player.shoot(player, opponent);
 }

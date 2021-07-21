@@ -16,19 +16,21 @@ Player::~Player() {
 
 }
 int Player::charToInt(char alphabet) {
+    cout << alphabet - 64 << endl;
 	return alphabet - 64;
 }
 
 // Shooting function:
 // Returns false if coordinates are shot already, or shot is out of bounds.
-void Player::shoot(Player& Opponent) {
+void Player::shoot(Player& player, Player& opponent) {
     int x, y;
     char temp;
     bool shot = false;
-    
+
     while(!shot) {
         cout << "Insert coordinates to shoot: ";
         cin >> temp;
+        temp = toupper(temp);
         x = charToInt(temp);
         cin >> y;
 
@@ -36,19 +38,22 @@ void Player::shoot(Player& Opponent) {
             cout << "Shot out of bounds!" << endl;
             shot = false;
         }
-        if(Opponent.Map.getBlock(y, x) == 'O') {
-            Opponent.Map.setBlock(y, x, 'X');
-            shot = true;
+        if(opponent.Map.getBlock(y, x) == 'O') {
+            opponent.Map.setBlock(y, x, 'X');
+            player.points ++;
+            opponent.health --;
+            break;
         }
-        if(Opponent.Map.getBlock(y, x) == '-') {
-            Opponent.Map.setBlock(y, x, '?');
-            shot = true;
+        if(opponent.Map.getBlock(y, x) == '-') {
+            opponent.Map.setBlock(y, x, '?');
+            break;
         }
-        if(Opponent.Map.getBlock(y,x) != '-' || Opponent.Map.getBlock(y,x) != 'O') {
-            cout << "Shot taken already!" << endl;
-            shot = false;
+        if(opponent.Map.getBlock(y, x) == 'O') {
+            opponent.Map.setBlock(y, x, 'X');
+            break;
         }
-        shot = false;
+
+//        shot = false;
     }
 }
 

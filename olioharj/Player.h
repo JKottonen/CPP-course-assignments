@@ -22,7 +22,7 @@ class Player {
         void addShips(string shipSeed);
         bool checkShipSpace(int y, int x, int length, char direction);
         void addShip(int y, int x, int length, char direction);
-        void shoot(Player& opponent);
+        void shoot(Player& player, Player& opponent);
 };
 
 #endif
