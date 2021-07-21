@@ -18,6 +18,7 @@ class Game {
 
         void turn(Player& player, Player& opponent);
         void gameloop();
+        void printUI(Player& player, Player& opponent);
 
 };
 

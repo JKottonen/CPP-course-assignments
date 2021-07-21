@@ -42,15 +42,21 @@ void Game::gameloop() {
 }
 
 void Game::turn(Player& player, Player& opponent) {
-    string enter;
     system("CLS");
-    std::cout << "PLAYER " << player.playerNumber << ": Press Enter." << endl;
-    std::cin >> enter;
+    std::cout << "PLAYER " << player.playerNumber << endl;
+    system("pause");
+    printUI(player, opponent);
+    player.shoot(player, opponent);
+    printUI(player, opponent);
+    system("pause");
+}
+
+void Game::printUI(Player& player, Player& opponent) {
+    system("CLS");
     std::cout << "PLAYER " << player.playerNumber << "'S TURN:" << endl;
     std::cout << "  OPPONENT'S MAP" << endl;
     opponent.Map.printGrid();
     std::cout << "  YOUR MAP" << endl;
     player.Map.revealGrid();
     std::cout << "Your points: " << player.points << "/" << maxPoints << endl;
-    player.shoot(player, opponent);
 }
