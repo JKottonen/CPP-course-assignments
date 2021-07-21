@@ -1,8 +1,6 @@
 #ifndef GRID_H
 #define GRID_H
 
-#include "Ship.h"
-
 using namespace std;
 
 #define gridHeight 11
