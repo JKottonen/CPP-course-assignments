@@ -25,6 +25,7 @@ int Player::charToInt(char alphabet) {
 void Player::shoot(Player& player, Player& opponent) {
     int x, y;
     char temp;
+    char target;
 
     while(true) {
         cout << "Insert coordinates to shoot: " << endl;
@@ -36,23 +37,26 @@ void Player::shoot(Player& player, Player& opponent) {
         cin >> y;
         cout << endl;
 
+        target = opponent.Map.getBlock(y,x);
+
+
         if(x < 1 || x > 10 || y < 1 || y > 10) {
             cout << "Shot out of bounds!" << endl;
-//            shot = false;
         }
-        if(opponent.Map.getBlock(y, x) == 'O') {
+        if(target == 'X' || target == '?') {
+
+        }
+        if(target == 'O') {
             opponent.Map.setBlock(y, x, 'X');
             player.points ++;
             opponent.health --;
             break;
         }
-        if(opponent.Map.getBlock(y, x) == '-') {
+        if(target == '-') {
             opponent.Map.setBlock(y, x, '?');
             break;
         }
 
-
-//        shot = false;
     }
 }
 

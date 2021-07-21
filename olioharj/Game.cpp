@@ -37,7 +37,13 @@ void Game::gameloop() {
             break;
         }
     }
+    system("CLS");
     cout << "PLAYER " << winner << " WINS!" << endl;
+    cout << "PLAYER 1" << endl;
+    Player1.Map.revealGrid();
+    cout << "PLAYER 2" << endl;
+    Player2.Map.revealGrid();
+
     
 }
 
