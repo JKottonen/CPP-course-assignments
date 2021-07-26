@@ -3,6 +3,9 @@
 #include <iostream>
 
 Game::Game() {
+    // Counts maximum points depending on shipSeed, then
+    // creates two Player-objects and makes them place their ships.
+
     maxPoints = countMaxPoints(shipSeed);
     Player1 = Player(1, maxPoints);
     Player1.addShips(shipSeed);
@@ -16,6 +19,7 @@ Game::~Game() {
 }
 
 int Game::countMaxPoints(string shipSeed) {
+    // Function to count maximum points of the game
 	int sum = 0;
 	for (int i = 0; i < shipSeed.length(); i++) {
 		int num = (int)shipSeed[i]-48;
@@ -24,6 +28,8 @@ int Game::countMaxPoints(string shipSeed) {
 	return sum;
 }
 void Game::gameloop() {
+    // Cycles through players' turns until one of the two gets maximum points.
+    // When points are gained, loop is broken and the winner is declared.
     int winner;
     while(true) {
         this -> turn(Player1, Player2);
@@ -48,6 +54,7 @@ void Game::gameloop() {
 }
 
 void Game::turn(Player& player, Player& opponent) {
+    // Prints the UI and makes the player shoot the opponent
     system("CLS");
     std::cout << "PLAYER " << player.playerNumber << endl;
     system("pause");
@@ -58,11 +65,13 @@ void Game::turn(Player& player, Player& opponent) {
 }
 
 void Game::printUI(Player& player, Player& opponent) {
+    // Clears the screen and prints UI
     system("CLS");
     std::cout << "PLAYER " << player.playerNumber << "'S TURN:" << endl;
-    std::cout << "  OPPONENT'S MAP" << endl;
-    opponent.Map.printGrid();
     std::cout << "  YOUR MAP" << endl;
     player.Map.revealGrid();
+    std::cout << "  OPPONENT'S MAP" << endl;
+    opponent.Map.printGrid();
     std::cout << "Your points: " << player.points << "/" << maxPoints << endl;
+    std::cout << "Your health: " << player.healthBar() << endl;
 }

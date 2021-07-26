@@ -13,6 +13,7 @@ class Player {
         ~Player();
 
         Grid Map;
+        
         int playerNumber;
         int points = 0;
         int health;
@@ -23,6 +24,7 @@ class Player {
         bool checkShipSpace(int y, int x, int length, char direction);
         void addShip(int y, int x, int length, char direction);
         void shoot(Player& player, Player& opponent);
+        string healthBar();
 };
 
 #endif

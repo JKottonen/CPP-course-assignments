@@ -2,21 +2,24 @@
 #include <string>
 #include <iostream>
 
-//char grid[gridHeight][gridWidht];
-
 Grid::Grid() {
+    // Constructor calls for generateGrid-function.
     generateGrid();
 }
 
 char Grid::getBlock(int y, int x) {
+    // Returns the numeric value of chosen alphabet for coordinates.
     return grid[y][x];
 }
 
 void Grid::setBlock(int y, int x, char newChar) {
+    // Sets a new value for chosen coordinates.
     grid[y][x] = newChar;
 }
 
 void Grid::printGrid() {
+    // Shows the Player's map for the opponent player.
+    // Coordinates, hits and misses are shown, Player's ships stay hidden.
     for(int y = 0; y < gridHeight; y++) {
         for(int x = 0; x < gridWidht; x++) {
             if(y == 0 || x == 0) {
@@ -37,7 +40,7 @@ void Grid::printGrid() {
 
 
 void Grid::revealGrid() {
-    
+    // Reveals everything on the map, including hits, misses and player's ships.
     for(int y = 0; y < gridHeight; y++) {
         for(int x = 0; x < gridWidht; x++) {
             cout << grid[y][x] << " ";
@@ -49,6 +52,8 @@ void Grid::revealGrid() {
 }
 
 void Grid::generateGrid() {
+    // Generates a blank grid with coordinates on top and the left side.
+    // Fills the rest of the grid with character '-' .
     string num = " 1234567890";
     string alphab = " ABCDEFGHIJ";
     for(int y = 0; y < gridHeight; y++) {

@@ -2,12 +2,14 @@
 #include <iostream>
 
 Player::Player() {
+    // Default constructor
     playerNumber = 0;
     health = 0;
     maxHealth = 0;
 }
 
 Player::Player(int number, int maxPoints) {
+    // Constructor sets the player's health
     playerNumber = number;
     health = maxPoints;
     maxHealth = maxPoints;
@@ -16,13 +18,22 @@ Player::~Player() {
 
 }
 int Player::charToInt(char alphabet) {
-    cout << alphabet - 64 << endl;
+    // Turns given letter to a corresponding number
 	return alphabet - 64;
 }
+string Player::healthBar() {
+    // Creates a dynamic, printable health bar in a form of string.
+    string bar = "||";
+    bar.insert(1, health, '=');
+    bar.insert(1 + health, maxHealth - health, ' ');
+    return bar;
+}
 
-// Shooting function:
-// Returns false if coordinates are shot already, or shot is out of bounds.
+
 void Player::shoot(Player& player, Player& opponent) {
+    // Shooting function makes the player give new coordinates until the shot is valid.
+    // When the shot is valid, the function marks both player's maps and if hit, adds
+    // a point for the shooter and removes one health from opponent.
     int x, y;
     char temp;
     char target;
@@ -61,6 +72,10 @@ void Player::shoot(Player& player, Player& opponent) {
 }
 
 void Player::addShips(string shipSeed) {
+    // Shows the player their map and asks for coordinates and the direction of their ship.
+    // Then calls for checkShipSpace to see if the ship placement is valid.
+    // If placement is valid, calls for addShip to place the ship
+
 	int y, x;
 	char temp;
     system("CLS");
@@ -85,11 +100,14 @@ void Player::addShips(string shipSeed) {
 			cout << "EI KÄY" << endl;
 			i--;
 		}
-		
+		system("CLS");
+        Map.revealGrid();
 	}
+    system("pause");
 }
 
 bool Player::checkShipSpace(int y, int x, int length, char direction) {
+    // Checks if the Players ship position is valid. Returns a boolean.
     if(y > 10 || y < 1) {
         return false;
     }
@@ -143,6 +161,7 @@ bool Player::checkShipSpace(int y, int x, int length, char direction) {
 }
 
 void Player::addShip(int y, int x, int length, char direction) {
+    // Places O's where the ship is added.
     if(direction == 'N') {
         for(int i = y; i > y-length; i--) {
             Map.grid[i][x] = 'O';

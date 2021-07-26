@@ -8,4 +8,3 @@ int main() {
 	game.gameloop();
 	return 0;
 }
-
