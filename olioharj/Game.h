@@ -16,6 +16,7 @@ class Game {
         Player Player1;
         Player Player2;
 
+        void setShipSeed();
         void turn(Player& player, Player& opponent);
         void gameloop();
         void printUI(Player& player, Player& opponent);

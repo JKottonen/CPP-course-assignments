@@ -5,6 +5,7 @@
 Game::Game() {
     // Counts maximum points depending on shipSeed, then
     // creates two Player-objects and makes them place their ships.
+    setShipSeed();
 
     maxPoints = countMaxPoints(shipSeed);
     Player1 = Player(1, maxPoints);
@@ -51,6 +52,16 @@ void Game::gameloop() {
     Player2.Map.revealGrid();
 
     
+}
+
+void Game::setShipSeed() {
+    // Asks the player to insert their custom shipseed.
+    string numbers;
+    std::cout << "Insert a string of numbers to set the amount and lengths of ships." << endl;
+    std::cout << "For example: '543' means 3 ships with lengths 5, 4 and 3." << endl;
+    std::cout << "Your string: ";
+    std::cin >> numbers;
+    shipSeed = numbers;
 }
 
 void Game::turn(Player& player, Player& opponent) {
