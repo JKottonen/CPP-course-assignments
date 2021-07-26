@@ -78,11 +78,9 @@ void Player::addShips(string shipSeed) {
 
 	int y, x;
 	char temp;
-    // system("CLS");
-    // Map.revealGrid();
+    system("CLS");
+    Map.revealGrid();
 	for(int i = 0; i < shipSeed.length(); i++) {
-        system("CLS");
-        Map.revealGrid();
 		int shipLength = (int)shipSeed[i]-48;
 		cout << "Pelaaja " << playerNumber << ": anna aloituskoordinaatit laivalle, jonka pituus on " << shipLength << endl;
 		cout << "A-J: ";
@@ -102,7 +100,8 @@ void Player::addShips(string shipSeed) {
 			cout << "EI KÄY" << endl;
 			i--;
 		}
-
+        system("CLS");
+        Map.revealGrid();
 	}
     system("pause");
 }
