@@ -2,7 +2,7 @@
 
 ## About
 
-This simple game is a project for practising object oriented programming in c++.
+This simple game is a project for practicing object oriented programming in c++.
 
 ## How to play
 - **Run Battleships.exe**
