@@ -82,14 +82,14 @@ void Player::addShips(string shipSeed) {
     Map.revealGrid();
 	for(int i = 0; i < shipSeed.length(); i++) {
 		int shipLength = (int)shipSeed[i]-48;
-		cout << "Pelaaja " << playerNumber << ": anna aloituskoordinaatit laivalle, jonka pituus on " << shipLength << endl;
+		cout << "PLAYER " << playerNumber << ": insert starting coordinates for " << shipLength << " blocks long ship" <<endl;
 		cout << "A-J: ";
 		cin >> temp;
 		temp = toupper(temp);
 		x = charToInt(temp);
 		cout << "\n" << "1-10: ";
 		cin >> y;
-		cout << "\n" << "Suunta: N,S,W,E: ";
+		cout << "\n" << "Direction: N,S,W,E: ";
 		cin >> temp;
 		temp = toupper(temp);
 		cout << endl;
@@ -97,7 +97,7 @@ void Player::addShips(string shipSeed) {
 			addShip(y, x, shipLength, temp);
 		}
 		else{
-			cout << "EI KÄY" << endl;
+			cout << "Ship placement invalid!" << endl;
 			i--;
 		}
         system("CLS");
